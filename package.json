@@ -1,10 +1,18 @@
 {
   "name": "pixelate",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Quick command to pixelate an image file to a specified pixel ratio",
-  "main": "index.js",
+  "main": "pixelate.js",
   "author": "aquatic <aquaticone@proton.me>",
   "license": "MIT",
+  "bin": {
+    "pixelate": "./pixelate.js"
+  },
+  "scripts": {
+    "lint": "eslint ./pixelate.js --fix",
+    "format": "prettier --write ."
+  },
+  "type": "module",
   "devDependencies": {
     "@babel/core": "^7.19.6",
     "@babel/eslint-parser": "^7.19.1",
@@ -14,5 +22,9 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^4.2.1",
     "prettier": "^2.7.1"
+  },
+  "dependencies": {
+    "@napi-rs/canvas": "^0.1.30",
+    "yargs": "^17.6.2"
   }
 }
