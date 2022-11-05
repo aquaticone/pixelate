@@ -25,14 +25,14 @@ yargs(hideBin(process.argv))
   })
   .parse()
 
-async function run({ file, denominator: denominators }) {
+async function run({ file, strength: strengths }) {
   const filePath = path.resolve(process.cwd(), file)
   const dirname = path.dirname(filePath)
   const extension = path.extname(filePath)
   const filename = path.basename(filePath, extension)
   const input = await loadImage(filePath)
-  for (let i = 0; i < denominators.length; i++) {
-    const denominator = denominators[i]
+  for (let i = 0; i < strengths.length; i++) {
+    const denominator = strengths[i]
     const output = await pixelate(input, extension, denominator)
     await fs.writeFile(
       `${dirname}/${filename}-pixelate_${denominator}${extension}`,
